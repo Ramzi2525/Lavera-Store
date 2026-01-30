@@ -1,0 +1,25 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Studio Living · World</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+  <div id="shell"></div>
+  <div id="page"></div>
+
+  <script type="module">
+    import { renderShell, renderStatic } from "./js/app.js";
+    renderShell();
+    renderStatic("Studio World", "Brand story, designers, and editorial content.", [
+      { h:"About", p:"A refined narrative section with a modern layout." },
+      { h:"Stories", p:"Add blog posts (static HTML or JSON).", a:{ href:"contact.html", text:"Contact →" } },
+      { h:"Designers", p:"Showcase collaborations and signature collections." },
+    ]);
+  </script>
+</body>
+</html>
+

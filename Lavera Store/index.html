@@ -1,0 +1,35 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Lavera Store · Home</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <!-- Favicons -->
+<link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+
+<!-- Android / PWA -->
+<link rel="manifest" href="assets/icons/site.webmanifest">
+
+<meta name="theme-color" content="#0c0f14">
+
+</head>
+<body>
+  
+  <div id="shell"></div>
+  <div id="page"></div>
+
+  <script type="module">
+    import { renderShell, renderHome } from "./js/app.js";
+    renderShell();
+    renderHome();
+  </script>
+</body>
+</html>
+

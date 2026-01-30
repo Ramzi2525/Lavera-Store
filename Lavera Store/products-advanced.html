@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Living · Advanced Products</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="shell"></div>
+  <div id="page">
+    <main class="page section">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Advanced Filtering</h2>
+            <p>Filter products by multiple criteria for better discovery</p>
+          </div>
+          <a class="linkMuted" href="products.html" data-link>← Back to Products</a>
+        </div>
+        
+        <div id="advancedFilters"></div>
+        
+        <div class="productsGrid" id="filteredProducts">
+          <!-- سيتم ملء المنتجات هنا بالجافاسكريبت -->
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module">
+    import { renderShell, PRODUCTS } from "./js/app.js";
+    import { initAdvancedFilters, applyFilters } from "./js/enhanced.js";
+    
+    renderShell();
+    
+    // عرض المنتجات في الصفحة
+    function displayProducts(products) {
+      const container = document.getElementById('filteredProducts');
+      if (!container) return;
+      
+      if (products.length === 0) {
+        container.innerHTML = `
+          <div class="panel" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+            <h3 style="margin: 0 0 10px 0;">No products found</h3>
+            <p style="color: var(--muted);">Try adjusting your filters to find what you're looking for.</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = products.map(product => `
+        <div class="cardP">
+          <a class="thumb" href="product.html?id=${encodeURIComponent(product.id)}" data-link>
+            <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
+          </a>
+          <div class="pBody">
+            <div class="pTop">
+              <div>
+                <p class="pName">${product.name}</p>
+                <div class="pMeta">${product.category} · ${product.subcategory}</div>
+              </div>
+              <button class="iconbtn" type="button" data-wish="${product.id}" aria-label="Add to wishlist">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.8 4.6c-1.6-1.8-4.1-1.9-5.8-.4L12 6.8 9 4.2c-1.7-1.5-4.2-1.4-5.8.4-1.8 2.1-1.6 5.2.4 7.1l8 7.3 8-7.3c2-1.9 2.2-5 .4-7.1z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="priceRow">
+              <span class="price">$${product.price}</span>
+              ${product.compareAt ? `<span class="compare">$${product.compareAt}</span>` : ''}
+            </div>
+            <div class="pActions">
+              <a class="btn" href="product.html?id=${encodeURIComponent(product.id)}" data-link>View</a>
+              <button class="btn primary" type="button" data-add="${product.id}">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    // عرض المنتجات الأولية
+    displayProducts(PRODUCTS);
+    
+    // تهيئة الفلاتر بعد تحميل الصفحة
+    setTimeout(() => {
+      initAdvancedFilters();
+      
+      // تحديث دالة applyFilters لعرض المنتجات
+      window.applyFilters = function() {
+        applyFilters();
+        // يمكنك هنا استدعاء displayProducts مع المنتجات المصفاة
+      };
+    }, 100);
+  </script>
+</body>
+</html>

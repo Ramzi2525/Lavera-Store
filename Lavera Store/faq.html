@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Living · FAQ & Support</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="shell"></div>
+  <div id="page">
+    <main class="page section">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>FAQ & Support</h2>
+            <p>Find answers to common questions about shopping with us</p>
+          </div>
+          <a class="linkMuted" href="contact.html" data-link>Contact Support →</a>
+        </div>
+        
+        <div id="faqSection"></div>
+        
+        <div class="panel" style="margin-top: 30px;">
+          <h3 style="margin: 0 0 15px 0;">Still need help?</h3>
+          <p style="color: var(--muted); margin-bottom: 15px;">
+            Our customer support team is here to help you with any questions.
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="contact.html" class="btn primary" data-link>Contact Us</a>
+            <a href="mailto:support@studioliving.com" class="btn">Email Support</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script type="module">
+    import { renderShell } from "./js/app.js";
+    import { initFAQSystem } from "./js/enhanced.js";
+    
+    renderShell();
+    
+    // تهيئة نظام FAQ بعد تحميل الصفحة
+    setTimeout(() => {
+      initFAQSystem();
+    }, 100);
+  </script>
+</body>
+</html>

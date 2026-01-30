@@ -1,0 +1,25 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Studio Living · Contact</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+  <div id="shell"></div>
+  <div id="page"></div>
+
+  <script type="module">
+    import { renderShell, renderStatic } from "./js/app.js";
+    renderShell();
+    renderStatic("Contact", "Simple, premium, and clear.", [
+      { h:"Email", p:"hello@studioliving.example (replace with yours)" },
+      { h:"Support", p:"Orders, shipping, returns—add policy pages later." },
+      { h:"For professionals", p:"Add a B2B page for architects / hotels / cafes." },
+    ]);
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Studio Living · Gift Ideas</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+  <div id="shell"></div>
+  <div id="page"></div>
+
+  <script type="module">
+    import { renderShell, renderStatic } from "./js/app.js";
+    renderShell();
+    renderStatic("Gift Ideas", "Suggestions, bundles, price caps—like premium stores.", [
+      { h:"Under $75", p:"Curate small design gifts and desk objects.", a:{ href:"products.html", text:"Browse products →" } },
+      { h:"For coffee lovers", p:"Brewers, mugs, and accessories in one place." },
+      { h:"For wine lovers", p:"Corkscrews, coolers, bar accessories." },
+    ]);
+  </script>
+</body>
+</html>

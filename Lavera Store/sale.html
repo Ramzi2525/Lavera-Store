@@ -1,0 +1,24 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Studio Living · Sale</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+  <div id="shell"></div>
+  <div id="page"></div>
+
+  <script type="module">
+    import { renderShell, renderStatic } from "./js/app.js";
+    renderShell();
+    renderStatic("Sale", "Seasonal offers with the same premium feel.", [
+      { h:"Up to 40% Off", p:"A curated sale section. Connect it to real discounts easily.", a:{ href:"products.html", text:"Shop sale-style catalog →" } },
+      { h:"Limited Drops", p:"Add a 'limited edition' tag to products and filter by it." },
+      { h:"Gift wrapping", p:"A clean callout block you can keep across pages." },
+    ]);
+  </script>
+</body>
+</html>
